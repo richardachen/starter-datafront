@@ -2,3 +2,51 @@
 <!-- Create N shapes programmatically  -->
 <!-- --------------------------------- -->
 
+<button onclick="addCircles()">Add</button>
+
+<script>
+var x = 100;
+var y = 200;
+
+function randomPosition(){
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    var x = Math.floor(Math.random()*width);
+    var y = Math.floor(Math.random()*height);
+    return {x,y};
+}
+
+function addElementToPage(element){
+    // append to doc
+    document.getElementsByTagName('body')[0].appendChild(element);
+}
+
+function createElement(position){
+    var div = document.createElement('div');
+    div.style.zIndex = '1';
+    div.style.position = 'absolute';
+    div.style.left = position.x;
+    div.style.top = position.y;
+    div.style.width = '20px';
+    div.style.height = '20px';
+    div.style.borderRadius = '50%';
+    div.style.background = 'black';
+    return div;
+
+    // append to doc
+    // document.getElementsByTagName('body')[0].appendChild(div);
+}
+
+function addCircles(){
+    var circles = [];
+    var position = null;
+
+    // create circles
+    for(var i=0; i<10; i++){
+        position = randomPosition();
+        circles[i] = createElement(position);
+    }
+
+    circles.forEach((circle => addElementToPage(circle)));
+}
+</script>
