@@ -12,18 +12,19 @@
 <div id="output"></div>
 
 <script> 
+var salaries = data.data;
+var salary = 0;
 
 var count = function(){
-	// ------------------------
-	//		YOUR CODE
-	//   Count the number of jobs
-	//   with salaries over X.
-	//   X is the value of the
-	//   of the input box.
-	//	 Output result to 
-	//	 the output div.
-	// ------------------------
+	// var ct = 0;
+	var salary = Number(document.getElementById('salary').value);
+	console.log(salary);
+	var filtered = salaries.filter((item) => (item[18] > salary));
+	console.log(filtered.length);
 };
+
+// .filter()
+
 
 </script>
 </html>
